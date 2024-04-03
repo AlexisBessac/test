@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
         $errors['email'] = "Le champ Email est obligatoire et doit contenir un email valable";
     }
 
-    if(empty($_POST['phone']) && is_numeric($_POST['phone']))
+    if(empty($_POST['phone']) && ctype_digit($_POST['phone']))
     {
         $errors['phone'] = "Le numéro de téléphone est vide et doit contenir que des chiffres";
     }
