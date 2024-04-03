@@ -1,6 +1,34 @@
 <?php
 
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
+{
+    $errors = [];
 
+    if(empty($_POST['lastname']) || strlen($_POST['lastname']) <= 1)
+    {
+        $errors['lastname'] = "Le champ Nom doit être remplis et contenir plus d'un caractère";
+    }
+
+    if(empty($_POST['firstname']) || strlen($_POST['lastname']) <= 1)
+    {
+        $errors['firstname'] = "Le champ Prénom doit être remplis et contenir plus d'un caractère";
+    }
+
+    if(empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+    {
+        $errors['email'] = "Le champ Email est obligatoire et doit contenir une adresse mail valide";
+    }
+
+    if(empty($_POST['ticket']) || gmp_sign($_POST['ticket']))
+    {
+        $errors['ticket'] = "Veuiller entrer un nombre positif pour le choix du nombre de billets"; 
+    }
+
+    if(empty($_POST['reservation']))
+    {
+        $errors['reservation'] = "Veuillez faire un choix";
+    }
+}
 
 ?>
 
@@ -28,7 +56,7 @@
                         <input type="text" name="firstname" id="firstname" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Mail</label>
+                        <label for="email" class="form-label">Email</label>
                         <input type="email" name="email" id="email" class="form-control">
                     </div>
                     <div class="mb-3">
