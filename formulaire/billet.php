@@ -43,7 +43,7 @@
                             <option value="etudiant">Etudiant</option>
                         </select>
                     </div>
-                    <input type="submit" name="submit" class="btn btn-primary">Réserver un billet</input>
+                    <button type="submit" name="submit" class="btn btn-primary">Réserver un billet</button>
                 </form>
             </div>
         </div>
