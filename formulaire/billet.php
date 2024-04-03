@@ -50,18 +50,38 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
                     <div class="mb-3">
                         <label for="lastname" class="form-lacel">Nom</label>
                         <input type="text" name="lastname" id="lastname" class="form-control">
+                    <?php if(isset($errors) && !empty($_POST['lastname'])) : ?>
+                        <div class="invalid-feedback d-block">
+                            <?= $errors['lastname'] ?>
+                        </div>
+                    <?php endif; ?>    
                     </div>
                     <div class="mb-3">
                         <label for="firstname" class="form-label">Prénom</label>
                         <input type="text" name="firstname" id="firstname" class="form-control">
+                    <?php if(isset($errors) && !empty($_POST['firstname'])) : ?>
+                        <div class="invalid-feedback d-block">
+                            <?= $errors['firstname'] ?>
+                        </div>
+                    <?php endif; ?> 
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" name="email" id="email" class="form-control">
+                    <?php if(isset($errors) && !empty($_POST['email'])) : ?>
+                        <div class="invalid-feedback d-block">
+                            <?= $errors['email'] ?>
+                        </div>
+                    <?php endif; ?> 
                     </div>
                     <div class="mb-3">
                         <label for="ticket" class="form-label">Nombre de tickets choisit</label>
                         <input type="number" name="ticket" id="ticket" class="form-control">
+                    <?php if(isset($errors) && !empty($_POST['ticket'])) : ?>
+                        <div class="invalid-feedback d-block">
+                            <?= $errors['ticket'] ?>
+                        </div>
+                    <?php endif; ?> 
                     </div>
                     <div class="mb-3">
                     <label for="reservation" class="form-label">Type de billet</label>
@@ -70,6 +90,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
                             <option value="VIP">VIP</option>
                             <option value="etudiant">Etudiant</option>
                         </select>
+                    <?php if(isset($errors) && !empty($_POST['reservation'])) : ?>
+                        <div class="invalid-feedback d-block">
+                            <?= $errors['reservation'] ?>
+                        </div>
+                    <?php endif; ?> 
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary">Réserver un billet</button>
                 </form>
